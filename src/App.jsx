@@ -1,14 +1,21 @@
-import Button from "./Button";
-import Card from "./Card";
 import AddTask from "./Component/AddTask";
 import TaskList from "./Component/TaskList";
-
-export default function App(){
-  return(
+import { TasksProvider } from "./Component/TasksContext";
+// import { todoLists } from "./Component/TasksContext";
+export default function App() {
+  
+  return (
     <>
-    {/* <Card/> */}
-    <AddTask/>
-    <TaskList/>
+    
+     <TasksProvider>
+      <AddTask />
+      <TaskList />
+    </TasksProvider>
     </>
   )
 }
+
+
+
+
+

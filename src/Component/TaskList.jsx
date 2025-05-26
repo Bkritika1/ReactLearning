@@ -1,34 +1,47 @@
-
-const todoLists = [
-
-    { id: 1, task: "Buy groceries", completed: false },
-    { id: 2, task: "Finish homework", completed: true },
-    { id: 3, task: "Call the doctor", completed: false }
-];
-
+import { useContext } from "react"
+import { TaskContext, TaskDispatchContext } from './TasksContext'
 
 export default function TaskList() {
+    const tasks = useContext(TaskContext)
     return (
         <ul>
 
-            {todoLists.map((todo) => (
-                <li key={todo.id}>
-                    <Task task={todo.task} completed={todo.completed} />
-                
+            {tasks.map((task) => (
+                <li key={task.id}>
+                    <Task task={task}  />
+
                 </li>
 
             ))}
         </ul>
     )
 }
-function Task({ task, completed }) {
+function Task({ task }) {
+    const dispatch = useContext(TaskDispatchContext)
     return (
         <label>
-            <input type="checkbox"
-                checked={completed}
-            /> {task}
+            <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={e => {
+                    dispatch({
+                        type: 'changed',
+                        task: {
+                            ...task,
+                            done: e.target.checked
+                        }
+                    });
+                }}
+            />{task.task}
+
+
             <button>Edit</button>
-            <button>Delete</button>
+            <button onClick={() => {
+                dispatch({
+                    type: 'deleted',
+                    id: task.id
+                })
+            }}>Delete</button>
         </label>
     )
 }
