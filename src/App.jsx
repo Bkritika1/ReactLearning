@@ -1,7 +1,8 @@
 import AddTask from "./Component/AddTask";
 import TaskList from "./Component/TaskList";
 import { TasksProvider } from "./Component/TasksContext";
-// import { todoLists } from "./Component/TasksContext";
+import Parent from "./Toastcompo/parent";
+import "./App.css";
 export default function App() {
   
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <AddTask />
       <TaskList />
     </TasksProvider>
+    <Parent/>
     </>
   )
 }

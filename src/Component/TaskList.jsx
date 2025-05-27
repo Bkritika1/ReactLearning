@@ -1,5 +1,7 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { TaskContext, TaskDispatchContext } from './TasksContext'
+
+
 
 export default function TaskList() {
     const tasks = useContext(TaskContext)
@@ -8,7 +10,7 @@ export default function TaskList() {
 
             {tasks.map((task) => (
                 <li key={task.id}>
-                    <Task task={task}  />
+                    <Task task={task} />
 
                 </li>
 
@@ -18,26 +20,18 @@ export default function TaskList() {
 }
 function Task({ task }) {
     const dispatch = useContext(TaskDispatchContext)
+    // const [isEditing, setisEditing] = useState(false)
+    // const [editedText, setEditedText] = useState(task.task)
     return (
         <label>
             <input
                 type="checkbox"
                 checked={task.completed}
-                onChange={e => {
-                    dispatch({
-                        type: 'changed',
-                        task: {
-                            ...task,
-                            done: e.target.checked
-                        }
-                    });
-                }}
+               
             />{task.task}
-
-
             <button>Edit</button>
-            <button onClick={() => {
-                dispatch({
+            <button onClick={() => {      
+                dispatch({            
                     type: 'deleted',
                     id: task.id
                 })
