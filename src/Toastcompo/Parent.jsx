@@ -1,5 +1,4 @@
 import Form from "./Form";
-import Toast from "./ToastList";
 export default function Parent(){
     return(
         <div className="parent">
