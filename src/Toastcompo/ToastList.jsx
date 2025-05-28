@@ -1,20 +1,16 @@
-const Toasts = [
-    {id:1, message:'Succssefully Message'},
-    {id:2, message: 'Information Messsage'},
-    {id:3, message: 'Warning Messsage'},
-]
-
+import { useContext } from "react"
+import { ToastContext, ToastProvider } from "./ToastContext"
 export default function Toast(){
+const {Toast} = useContext(ToastContext)
+
     return(
      <div className="Toasts">
-        <button>
-            sendMessage
-        </button>
        <ul>
-        {Toasts.map((toss)=>(
-            <li key={toss.id}> {toss.message}</li>
+        {Toast.map((toast)=>(
+            <li key={toast.id}> {toast.message}</li>
         ))}
        </ul>
      </div>
     )
 }
+

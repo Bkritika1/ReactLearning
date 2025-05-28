@@ -25,16 +25,21 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .Toasts ul li{
-  border: 1px solid red;
+  border: 1px solid rgba(205, 39, 39, 0.192);
   padding: 5px;
   align-items: center;
   width: 250px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.733);
+border-radius: 5px;
 
 }
 .Toasts ul{
   display: flex;
   flex-direction: column;
   gap: .6em;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
 }
 @keyframes logo-spin {
   from {

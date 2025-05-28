@@ -1,4 +1,6 @@
 import Form from "./Form";
+import Form1 from "./Form1";
+import Toast from "./ToastList";
 export default function Parent(){
     return(
         <div className="parent">
@@ -7,6 +9,8 @@ export default function Parent(){
         {/* <Toast/> */}
 
      <Form/>
+     <Toast/>
+     <Form1/>
         </div>
     )
 }
